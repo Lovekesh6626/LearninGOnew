@@ -1,0 +1,80 @@
+﻿
+@{
+    ViewBag.Title = "CourseCategoryView";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+@model IEnumerable<OnlineClassManagement.Models.CourseCategoryModel>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+    <!-- Box icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css" />
+    <!-- Custom StyleSheet -->
+    <link href="~/Content/css/CourseCategoryCSS Admin.css" rel="stylesheet" />
+    <title>LearninGO - Online Class Website</title>
+</head>
+
+
+<body style="margin-left: 0px">
+    <!-- Main -->
+    <div class="title">
+        <h1>Categories</h1>
+    </div>
+
+
+    @foreach (var item in Model)
+    {
+        <section class="advert section" >
+            <div class="advert-center container dotted" >
+                <div class="row" >
+                    <div class="col-md-4" >
+                        <div class="advert-box">
+                            <div class="dotted">
+                                <div class="content">
+                                    <h2 style="color:black;">
+                                        <p class="title">@Html.DisplayFor(modelItem => item.Name)</p>
+                                    </h2>
+                                    <h4 style="color:black;">Worlds Best Courses</h4>
+                                    <a class="btn" href="/Home/Developing">Explore Now</a>
+                                    @*<div class="button-view-more">
+                    @Html.ActionLink("View All", "OneInstructorProfile", "Instructor", new { id = item.InstructorId }, null)
+                </div>*@
+                                </div>
+                            </div>
+                            <img src="~/Content/images/CategoryImage.jpg" alt=""
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+        <script src="./js/index.js"></script>
+    }
+
+
+    <div class="btn">
+        @Html.ActionLink("Add New Category", "CreateCourseCategory")
+    </div>
+
+
+
+
+    @*<div>
+            <input class="btn" type='button' value='Add New Category' id='myButton' onClick='redirectOnClick()' />
+        <script>
+            function redirectOnClick() {
+                document.location = 'CourseCategory/CreateCourseCategory';
+            }
+        </script>*@
+
+    @*<input class="btn" type="button" value="add new category2"
+        onclick="window.location.href='<%= url.action(" CourseCategory", "CreateCourseCategory" ) %>*@
+    @*<button class="btn" onclick="CourseCategory,CreateCourse">Add Category</button>
+        </div>*@
+</body>
+
+

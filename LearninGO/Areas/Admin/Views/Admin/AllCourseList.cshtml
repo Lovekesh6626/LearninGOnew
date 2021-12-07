@@ -1,0 +1,149 @@
+﻿@model IEnumerable<LearninGO.CreateCourse>
+
+@{
+    ViewBag.Title = "AllCourseList";
+    Layout = "~/Areas/Admin/Views/Shared/_Admin.cshtml";
+}
+
+@{
+    LearninGODatabaseProjectEntities db = new LearninGODatabaseProjectEntities();
+    var List = db.CreateCourse.ToList();
+}
+
+
+
+<style>
+    .temp3 {
+        background-color: darkgray;
+        padding: 10px;
+        margin: 10px;
+        width: 250px;
+        height: 310px;
+        border-radius: 8px;
+    }
+
+
+    .card2 {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        border-radius: 8px;
+        width: 90%;
+        height: 100%;
+        max-width: 300px;
+        margin: auto;
+        text-align: center;
+        font-family: arial;
+        background-color: white;
+    }
+
+    .button5 {
+        border: none;
+        outline: 0;
+        display: inline-block;
+        padding: 8px;
+        color: white;
+        background-color: #000;
+        text-align: center;
+        cursor: pointer;
+        width: 100%;
+        font-size: 18px;
+        border-radius: 8px;
+    }
+
+
+        .button5:hover, a:hover {
+            opacity: 0.7;
+        }
+
+    .button-view-more {
+        padding: 8px;
+        background-color: #000;
+        border-radius: 8px;
+        font-size: 18px;
+        width: 100%;
+        cursor: pointer;
+    }
+
+    .button-view-more-text {
+        color: white;
+    }
+
+    .home-section .text {
+        display: inline-block;
+        color: #11101d;
+        font-size: 15px;
+        font-weight: 500;
+        margin-left: 10px;
+        margin-top: 80px;
+    }
+    .btn {
+        display: inline-block;
+        background-color: black;
+        padding: 1.2rem 4rem;
+        color: #fff;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-top: 3rem;
+    }
+
+</style>
+
+
+@using (Html.BeginForm("InstructorProfile", "Instructor", FormMethod.Post))
+{
+    <div class="form-horizontal">
+        <div class="form-group">
+
+           
+            @Html.Label("     ", new { @class = "col-md-2 control-label" })
+
+            <div class="col-md-6">
+                @Html.TextBox("searchtext", null, new { @class = "form-control", @placeholder = "Enter Name Here", @style = "max-width:100%" })
+            </div>
+            <div class="col-md-2" style="margin-top:-30px;">
+                <button class="btn btn-primary" type="submit">Search</button>
+            </div>
+        </div>
+    </div>
+}
+
+
+<div class="row" style="margin-left:10px">
+    @using (Html.BeginForm("InstructorProfile", "Instructor", FormMethod.Post))
+
+
+
+    {
+        <table class="tasble">
+            @foreach (var item in List)
+            {
+                <div class="temp3" style="float:left">
+                    <div class="row2">
+                        <div class="card2">
+                            <img src="~/Content/images/Digital-Marketing.jpg" alt="" style="width:200px;height:160px; border-radius:10%">
+
+
+                            <h3>@Html.ActionLink("Click Here", "CourseDetails", "Home", new { id = item.CourseId }, null) </h3>
+
+                            <h3> @Html.DisplayFor(modelItem => item.CourseTitle) </h3>
+
+                            <h4 class="price"> @Html.DisplayFor(modelItem => item.CourseLevel)</h4>
+
+
+
+                            @*<div class="button-view-more">
+            @Html.ActionLink("View More Details", "OneInstructorProfile", "Instructor", new { id = item.Id }, null)
+        </div>*@
+                        </div>
+                    </div>
+                </div>
+
+            }
+
+        </table>
+    }
+
+
+</div>
+
+
+

@@ -1,0 +1,255 @@
+﻿
+@model  LearninGO.CreateCourse
+
+@{
+    ViewBag.Title = "CourseDetails";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+@*@{
+        LearninGODatabaseProjectEntities db = new LearninGODatabaseProjectEntities();
+     
+
+    }*@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+
+    <!-- Box icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css" />
+
+    <!-- Glidejs -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.4.1/css/glide.core.css" />
+    <!-- Custom StyleSheet -->
+    <link rel="stylesheet" href="./css/styles.css" />
+    <title>Boy’s T-Shirt - Codevo</title>
+</head>
+
+<body>
+
+
+    <!-- Product Details -->
+    <section class="section product-detail">
+        <div class="details container-md">
+            <div class="left">
+                <div class="main">
+                    <img src="~/Content/images/Digital-Marketing.jpg" width=700 height=800 alt="" />
+                </div>
+
+            </div>
+
+            <div class="right">
+                <h1>@Html.DisplayFor(model => model.CourseTitle) </h1>
+                <h3>Design Your World</h3>
+
+                <span> </span>
+                <div class="price">Free</div>
+                <form>
+                    <div>
+                        <select>
+                            <option value="Select Level" selected disabled>@Html.DisplayFor(model => model.CourseLevel) </option>
+
+
+                        </select>
+                        <span><i class='bx bx-chevron-down'></i></span>
+                    </div>
+                </form>
+                <h3>@Html.ActionLink("Submit", "StudentCart", "Student", new { id = Model.CourseId }, null) </h3>
+                <form class="form">
+
+                    <input type="text" placeholder="1">
+                    @Html.ActionLink("Add To Cart", "CreateCart", "Home", new { buy = Model.CourseId, id = Session["UserID"] }, null)
+                    @Html.ActionLink("Add To Cart", "CreateCart", "Home", new { buy = Model.CourseId, id = Session["UserID"] }, null)
+
+                    <h3>@Html.ActionLink("buy Now", "CreateCart", "Home", new { buy = Model.CourseId, id = Session["UserID"] }, null) </h3>
+                </form>
+                <h3>Course Detail</h3>
+                <p>
+                    @Html.DisplayFor(model => model.Details)
+                </p>
+                <p>
+                    @Html.DisplayFor(model => model.MetaTitle)
+                </p>
+                <p>
+                    @Html.DisplayFor(model => model.Language)
+
+                </p>
+                <p>
+                    @Html.DisplayFor(model => model.Tag)
+
+                </p>
+
+
+                <h3>Instructor Detail</h3>
+                <p>
+                    @Html.DisplayFor(model => model.Account.FullName)
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="right">
+        <h1 style="text-align:right"> Content</h1>
+
+    </div>
+    <div class="grid-row reverse video-gallery">
+        @foreach (var content in Model.Content)
+        {
+            <p>
+                <input type="radio" value="1" name="video-list" id="video-1" checked="checked" />
+                <label for="video-1">
+                    @content.ContentType
+                    <i class="fa fa-lock" style="font-size:16px"></i>
+                </label>
+            </p>
+        }
+
+
+
+
+
+
+        <!-- videos -->
+    </div>
+
+    <br />
+    <br />
+    <br />
+
+
+    <br />
+    <br />
+    <br />
+
+    <br />
+    <br />
+    <br />
+
+    <br />
+    <br />
+    <br />
+
+    <!-- Related -->
+    <section class="section featured">
+        <div class="top container">
+            <h1>Related Products</h1>
+            <a href="/Home/Product" class="view-more">View more</a>
+        </div>
+
+        <div class="product-center container">
+            <div class="product">
+                <div class="product-header">
+                    <img src="~/Content/images/adobe illustrator.png" alt="">
+                    <ul class="icons">
+                        <span><i class="bx bx-heart"></i></span>
+                        <span><i class="bx bx-shopping-bag"></i></span>
+                        <span><i class="bx bx-search"></i></span>
+                    </ul>
+                </div>
+                <div class="product-footer">
+                    <a href="#"><h3>Adobe-Illustrator</h3></a>
+                    <div class="rating">
+                        <i class="bx bxs-star"></i>
+                        <i class="bx bxs-star"></i>
+                        <i class="bx bxs-star"></i>
+                        <i class="bx bxs-star"></i>
+                        <i class="bx bx-star"></i>
+                    </div>
+                    <h4 class="price">Free</h4>
+                </div>
+            </div>
+            <div class="product">
+                <div class="product-header">
+                    <img src="~/Content/images/adobe photoshop.png" alt="">
+
+                    <ul class="icons">
+                        <span><i class="bx bx-heart"></i></span>
+                        <span><i class="bx bx-shopping-bag"></i></span>
+                        <span><i class="bx bx-search"></i></span>
+                    </ul>
+                </div>
+                <div class="product-footer">
+                    <a href="#"><h3>Adobe-photoShop</h3></a>
+                    <div class="rating">
+                        <i class="bx bxs-star"></i>
+                        <i class="bx bxs-star"></i>
+                        <i class="bx bxs-star"></i>
+                        <i class="bx bxs-star"></i>
+                        <i class="bx bx-star"></i>
+                    </div>
+                    <h4 class="price">Free</h4>
+                </div>
+            </div>
+            <div class="product">
+                <div class="product-header">
+                    <img src="~/Content/images/artificial intelligence.jpg" alt="">
+
+                    <ul class="icons">
+                        <span><i class="bx bx-heart"></i></span>
+                        <span><i class="bx bx-shopping-bag"></i></span>
+                        <span><i class="bx bx-search"></i></span>
+                    </ul>
+                </div>
+                <div class="product-footer">
+                    <a href="#"><h3>Artificial-Intelligence</h3></a>
+                    <div class="rating">
+                        <i class="bx bxs-star"></i>
+                        <i class="bx bxs-star"></i>
+                        <i class="bx bxs-star"></i>
+                        <i class="bx bxs-star"></i>
+                        <i class="bx bx-star"></i>
+                    </div>
+                    <h4 class="price">Free</h4>
+                </div>
+            </div>
+            <div class="product">
+                <div class="product-header">
+                    <img src="~/Content/images/data science.jpg" alt="">
+
+                    <ul class="icons">
+                        <span><i class="bx bx-heart"></i></span>
+                        <span><i class="bx bx-shopping-bag"></i></span>
+                        <span><i class="bx bx-search"></i></span>
+                    </ul>
+                </div>
+                <div class="product-footer">
+                    <a href="#"><h3>Data-Science</h3></a>
+                    <div class="rating">
+                        <i class="bx bxs-star"></i>
+                        <i class="bx bxs-star"></i>
+                        <i class="bx bxs-star"></i>
+                        <i class="bx bxs-star"></i>
+                        <i class="bx bx-star"></i>
+                    </div>
+                    <h4 class="price">Free</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+    <!-- Custom Script -->
+    <script src="./js/index.js"></script>
+</body>
+
+</html>
+
+
+
+
+

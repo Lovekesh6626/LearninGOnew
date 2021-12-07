@@ -1,0 +1,70 @@
+﻿@model LearninGO.Areas.Admin.Data.AcountModel
+
+@{
+    ViewBag.Title = "OneInstructorProfile";
+    Layout = "~/Areas/Admin/Views/Shared/_Admin.cshtml";
+}
+
+
+<style>
+    .MainDiv {
+        background-color: gray;
+        vertical-align: central;
+        border-radius: 5px;
+        margin-top: -150px;
+    }
+
+    .data_row {
+        display: flex;
+    }
+
+    .body {
+        background-color: lightgray
+    }
+
+    .dl-horizontall {
+        padding: 20px;
+    }
+</style>
+<body class="body">
+    <div class="MainDiv">
+        <h1>
+            Instructor Details
+        </h1>
+        <hr />
+        <dl class="dl-horizontall">
+            <img src="~/Content/Images/profile.jpg" alt="instructor" style="width:400px;height:300px; border-radius:10%">
+            <div class="data_row">
+                <h2>Name:  &nbsp</h2>
+                <h2>  @Html.DisplayFor(model => model.FullName)</h2>
+            </div>
+            <div class="data_row">
+                <h2>Instructor Id:  &nbsp</h2>
+                <h2>  @Html.DisplayFor(model => model.Id)</h2>
+            </div>
+            <div class="data_row">
+                <h2>Mobile:  &nbsp</h2>
+                <h2>@Html.DisplayFor(model => model.InstructorPhoneNumber)</h2>
+            </div>
+            <div class="data_row">
+                <h2>City:  &nbsp</h2>
+                <h2>@Html.DisplayFor(model => model.InstructorAddress)</h2>
+            </div>
+            <div class="data_row">
+                <h2>About:  &nbsp</h2>
+                <h2>@Html.DisplayFor(model => model.InstructorAbout)</h2>
+            </div>
+            <div class="data_row">
+                <h2>Date of Joining:  &nbsp</h2>
+                <h2>@Html.DisplayFor(model => model.Time)</h2>
+            </div>
+
+
+        </dl>
+    </div>
+
+    <div class="button-view-more">
+        @Html.ActionLink("Delete This User", "DeleteConfirmed", "Instructor", new { id = Model.InstructorId }, null)
+    </div>
+
+</body>

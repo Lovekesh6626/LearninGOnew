@@ -1,0 +1,46 @@
+﻿@model IEnumerable<OnlineClassManagement.Message>
+
+@{
+    ViewBag.Title = "MessageDisplay";
+    Layout = "~/Views/Shared/_Student.cshtml";
+}
+
+<h2>MessageDisplay</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Chat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Account.FullName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Account1.FullName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Chat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Account.FullName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Account1.FullName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.sno }) |
+            @Html.ActionLink("Details", "Details", new { id=item.sno }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.sno })
+        </td>
+    </tr>
+}
+
+</table>

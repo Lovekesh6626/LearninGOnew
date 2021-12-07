@@ -1,0 +1,75 @@
+﻿@model LearninGO.Areas.Admin.Data.AcountModel
+
+@{
+    ViewBag.Title = "OneStudentProfile";
+    Layout = "~/Areas/Admin/Views/Shared/_Admin.cshtml";
+}
+
+
+<style>
+    .MainDiv {
+        background-color: gray;
+        vertical-align: central;
+        border-radius: 5px;
+        margin-top: -150px;
+    }
+
+    .data_row {
+        display: flex;
+    }
+
+    .body {
+        background-color: lightgray
+    }
+
+    .dl-horizontall {
+        padding: 20px;
+    }
+</style>
+<body class="body">
+    <div class="MainDiv">
+        <h1>
+            @Html.DisplayFor(model => model.FullName) Details
+        </h1>
+        <hr />
+        <dl class="dl-horizontall">
+            <img src="~/Content/Images/student.jpg" alt="instructor" style="width:400px;height:300px; border-radius:10%">
+            <div class="data_row">
+                <h2>Name:  &nbsp</h2>
+                <h2>  @Html.DisplayFor(model => model.FullName)</h2>
+            </div>
+            <div class="data_row">
+                <h2>Student ID:  &nbsp</h2>
+                <h2>@Html.DisplayFor(model => model.Id)</h2>
+            </div>
+            <div class="data_row">
+                <h2>Email:  &nbsp</h2>
+                <h2>@Html.DisplayFor(model => model.Email)</h2>
+            </div>
+            <div class="data_row">
+                <h2>Mobile:  &nbsp</h2>
+                <h2>@Html.DisplayFor(model => model.PhoneNumber)</h2>
+            </div>
+
+            @*<div class="data_row">
+                <h2>Password:  &nbsp</h2>
+                <h2>@Html.DisplayFor(model => model.Password)</h2>
+            </div>*@
+            <div class="data_row">
+                <h2>About:  &nbsp</h2>
+                <h2>@Html.DisplayFor(model => model.About)</h2>
+            </div>
+            @*<div class="data_row">
+                <h2>Date of Joining:  &nbsp</h2>
+                <h2>@Html.DisplayFor(model => model.Time)</h2>
+            </div>
+            <div class="data_row">
+                <h2>No of Courses Creadted:  &nbsp</h2>
+                <h2>@Html.DisplayFor(model => model.NoOfCourses)</h2>
+            </div>*@
+
+
+        </dl>
+    </div>
+
+</body>

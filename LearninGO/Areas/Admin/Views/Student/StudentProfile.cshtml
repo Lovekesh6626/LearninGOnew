@@ -1,0 +1,150 @@
+﻿@model IEnumerable<LearninGO.Areas.Admin.Data.StudentModel>
+
+@{
+    ViewBag.Title = "StudentProfile";
+    Layout = "~/Areas/Admin/Views/Shared/_Admin.cshtml";
+}
+
+
+<style>
+    .temp3 {
+        background-color: darkgray;
+        padding: 10px;
+        margin: 10px;
+        width: 250px;
+        height: 350px;
+        border-radius: 8px;
+    }
+
+
+    .card2 {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        border-radius: 8px;
+        width: 90%;
+        height: 80%;
+        max-width: 300px;
+        margin: auto;
+        text-align: center;
+        font-family: arial;
+        background-color: gray;
+    }
+
+    .button5 {
+        border: none;
+        outline: 0;
+        display: inline-block;
+        padding: 8px;
+        color: white;
+        background-color: #000;
+        text-align: center;
+        cursor: pointer;
+        width: 100%;
+        font-size: 18px;
+        border-radius: 8px;
+    }
+
+
+        .button5:hover, a:hover {
+            opacity: 0.7;
+        }
+
+    .button-view-more {
+        padding: 8px;
+        background-color: #000;
+        border-radius: 8px;
+        font-size: 18px;
+        width: 100%;
+        cursor: pointer;
+    }
+
+    .button-view-more-text {
+        color: white;
+    }
+
+    .home-section .text {
+        display: inline-block;
+        color: #11101d;
+        font-size: 15px;
+        font-weight: 500;
+        margin-left: 10px;
+        margin-top: 80px;
+</style>
+
+
+
+@using (Html.BeginForm("StudentProfile", "Student", FormMethod.Post))
+{
+    <div class="form-horizontal">
+        <div class="form-group">
+
+            @*<label class="col-md-2 control-label">Search</label>
+
+                <div class="col-md-6">
+                     <input type="text" name="searchtext" style="max-width:100%" class="form-control" placeholder="Enter Text Here" />
+                </div>
+
+                <div class="col-md-2">
+                    <button class="btn btn-primary" type="submit">Search</button>
+                </div>*@
+            @Html.Label("Search", new { @class = "col-md-2 control-label" })
+
+            <div class="col-md-6">
+                @Html.TextBox("searchtext", null, new { @class = "form-control", @placeholder = "Enter Name Here", @style = "max-width:100%" })
+            </div>
+            <div class="col-md-2">
+                <button class="btn btn-primary" type="submit">Search</button>
+            </div>
+        </div>
+    </div>
+}
+
+
+<table class="tasble">
+    @foreach (var item in Model)
+    {
+        <div class="temp3">
+            <div class="row2">
+
+                <div class="card2">
+                    <img src="~/Content/Images/student.jpg" alt="@Html.DisplayFor(modelItem => item.FullName)" style="width:200px;height:160px; border-radius:10%">
+                    <h1>@Html.DisplayFor(modelItem => item.FullName)</h1>
+                    <p class="title">@Html.DisplayFor(modelItem => item.PhoneNumber)</p>
+                    <p>@Html.DisplayFor(modelItem => item.About)</p>
+
+                    <div class="button-view-more">
+
+                        @Html.ActionLink("View More Details", "OneStudentProfile", "Student", new { idstu = item.Id }, null)
+                    </div>
+                </div>
+            </div>
+        </div>
+        @*<div class="temp3">
+                <div>
+                    <div>
+                        <div class="card2">
+                            <img src="~/Content/Images/student.jpg" alt="instructor" style="width:67%;height:70%; border-radius:10%">
+                            <br>
+                            <h1>@Html.DisplayFor(modelItem => item.InstructorPhoneNumber)</h1><br>
+                            <h3>@Html.DisplayFor(modelItem => item.InstructorAddress)</h3><br>
+                            <h4>@Html.DisplayFor(modelItem => item.InstructorAbout)</h4><br>
+                            <div class="button-view-more">
+                                @Html.ActionLink("View More Details", "OneInstructorProfile", "Instructor", new { id = item.InstructorId }, null)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>*@
+
+
+        @*@Html.Action("Submit", "OneInstructorProfile", "Instructor", new )*@
+        @*<button class="plan-button demo" id="btnSubmit" name="btnSubmit" onclick="test(this)" value="@item.id">More Details</button>*@
+
+        @*<td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+                @Html.ActionLink("Details", "Details", new { id=item.id }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.id })
+            </td>*@
+        <!--</tr>-->
+    }
+
+</table>

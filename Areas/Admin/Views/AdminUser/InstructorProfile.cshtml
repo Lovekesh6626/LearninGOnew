@@ -1,0 +1,101 @@
+﻿@model List<OnlineClassManagement.Models.InstructorProfileModel>
+
+@{
+    ViewBag.Title = "InstructorProfile";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+
+
+<style>
+    .temp3 {
+        background-color: darkgray;
+        padding: 10px;
+        margin: 10px;
+        width: 350px;
+        height: 350px;
+        border-radius: 8px;
+    }
+
+
+    .card2 {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        border-radius: 8px;
+        width: 90%;
+        height: 90%;
+        max-width: 300px;
+        margin: auto;
+        text-align: center;
+        font-family: arial;
+        background-color: gray;
+    }
+
+    .button5 {
+        border: none;
+        outline: 0;
+        display: inline-block;
+        padding: 8px;
+        color: white;
+        background-color: #000;
+        text-align: center;
+        cursor: pointer;
+        width: 100%;
+        font-size: 18px;
+        border-radius: 8px;
+    }
+
+
+        .button5:hover, a:hover {
+            opacity: 0.7;
+        }
+
+    .button-view-more {
+        padding: 8px;
+        background-color: #000;
+        border-radius: 8px;
+        font-size: 18px;
+        width: 100%;
+        cursor: pointer;
+    }
+
+    .button-view-more-text {
+        color: white;
+    }
+
+    .home-section .text {
+        display: inline-block;
+        color: #11101d;
+        font-size: 15px;
+        font-weight: 500;
+        margin-left: 10px;
+        margin-top: 80px;
+</style>
+
+<div class="row" style="margin-left:10px">
+    @using (Html.BeginForm("InstructorProfile", "Instructor", FormMethod.Post))
+   
+
+  
+    {
+        <table class="tasble">
+            @foreach (var item in Model)
+            {
+                <div class="temp3">
+                    <div class="row2">
+                        <div class="card2">
+                            <img src="~/Content/images/profile1.jpg" alt="@Html.DisplayFor(modelItem => item.InstructorPhoneNumber)" style="width:230px;height:160px; border-radius:10%">
+                            <h1>@Html.DisplayFor(modelItem => item.FullName)</h1>
+                            <p class="title">@Html.DisplayFor(modelItem => item.Email)</p>
+                            <p>@Html.DisplayFor(modelItem => item.InstructorAbout)</p>
+
+                            <div class="button-view-more">
+                                @Html.ActionLink("View More Details", "OneInstructorProfile", "Instructor", new { id = item.Id }, null)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            }
+
+        </table>
+    }

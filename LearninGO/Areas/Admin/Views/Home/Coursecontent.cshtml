@@ -1,0 +1,97 @@
+﻿
+@model  LearninGO.CreateCourse
+
+@{
+    ViewBag.Title = "CourseDetails";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+@*@{
+        LearninGODatabaseProjectEntities db = new LearninGODatabaseProjectEntities();
+
+
+    }*@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="./images/favicon.ico" type="image/x-icon">
+
+    <!-- Box icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css" />
+
+
+    <!-- Custom StyleSheet -->
+    <link rel="stylesheet" href="./css/styles.css" />
+    <title>Courses </title>
+    <link rel="stylesheet" href="~/Content/css/testing.css" />
+</head>
+
+<body>
+
+    <div class="title">
+        <h1>@Html.DisplayFor(modelitem => Model.CourseTitle)</h1>
+    </div>
+    <!-- Product Details -->
+
+
+    <div class="grid-row reverse video-gallery">
+        @foreach (var content in Model.Content)
+        {
+            int i = 1;
+
+            <input type="radio" value=i name="video-list" id="video-i" checked="checked" /><label for="video-i">@content.ContentType <input style="margin-left:400px" type="checkbox" /></label>
+
+            <div class="video video-i">
+                <iframe width="750" height="315" src="@content.Url" frameborder="0" allowfullscreen>
+                </iframe>
+
+            </div>
+
+            i++;
+            <!-- videos -->
+        }
+
+
+
+
+
+
+        <!-- videos -->
+    </div>
+
+    <br />
+    <br />
+    <br />
+
+
+    <br />
+    <br />
+    <br />
+
+    <br />
+    <br />
+    <br />
+
+    <br />
+    <br />
+    <br />
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.5.1/gsap.min.js"></script>
+    <!-- Custom Script -->
+    <script src="./js/index.js"></script>
+</body>
+
+</html>
